@@ -1,4 +1,4 @@
-```
+
 Q. What is JavaScript
 A: JavaScript is a high level, object oriented, multi-paradigm, programming language.
 A: JavaScript is a High level, prototype based object oriented, multi-paradigm, interpreted or Just In Time Compiled, dynamic, single-threaded, garbage collected programming language with first-class functions and a non-blocking event loop concurrency model.
@@ -28,7 +28,7 @@ Interpretation: Line by line execution of the code.
 Just In Time(JIT) Compilation: Entire code is converted into machine code at once, then executed immediately.
 Code --> Parsing --> Compilation --> Execution --> Optimization --> Compilation --> Execution -->... JS engine creates an unoptimized version of machine code and executes immediately, at the same time keeps optimizing the machine code and replaces the current code with better optimized versions of the code making it extremely fast.
 
-
+```
 JS Runtime In The Browser
 1. Heap - JS Engine
 2. Call Stack - JS Engine
@@ -42,7 +42,7 @@ JS Runtime In Node.js
 3. Libuv (C++ Bindings & Thread Pool)
 4. Callback Queue -> onClick, timer, data, etc.
 5. Event Loop.
-
+```
 
 Execution
 1. Creation of global execution context(for top level code (code that is not inside a function)). Exactly one gloabl execution context.
@@ -61,7 +61,7 @@ this keyword:
 1. created for every execution context.
 2. this is NOT static.
 
-
+```
 In JS every value is either an object or a primitive value.
 
 7 Data Types In JS
@@ -72,7 +72,7 @@ In JS every value is either an object or a primitive value.
 5. Null
 6. Symbol
 7. BigInt (ES2020)
-
+```
 
 JS has dynamic typing => Data types are determined automatically.
 
@@ -97,14 +97,14 @@ JS is Backwards Compatible, not forwards compatible
 In JS, functions are just values which can be stored in variables
 
 function declaration can be accessed from a line even before its declaration where as function expression can only be called after its declaration.
-
+```
 function declaration
 function calcAge(){}
 
 function expression
 const calcAge = function(){}
 const calcAge = () => {}
-
+```
 
 Everything in JS is a value and nearly everything in JS is an object other than the 7 data types — null , undefined , strings, numbers, boolean, symbols and BigInt (These are primitive values or primitive data types).
 
@@ -113,18 +113,20 @@ DOM: Document Object Model is a structured representation of HTML documents. It 
 DOM Methods and Properties are not part of JS language. They are part of Web Apis which interact with JS.
 
 The Spread Operator(...) takes all elements from the array and also doesn't create new variables, hence we can only use it where we would otherwise write values separated by commas.
+```
 Helps creating shallow copies of an array.
 // Copy Array
 const newArray = [...originalArray];
 // Join 2 Arrays
 const newArray = [...array1, ...array2];
-
+```
 Spread operator only works with iterables.
 Iterables: arrays, strings, maps, sets
 Non-Iterables: objects
 
 Spread operator was introduced in es6.
 From es2018, spread operator also works on objects even though they are not iterables.
+```
 // Creating A new object using key value pairs of the old object while adding new key value pairs
 const newObject = {...originalObject, founder: Abhi, date:'2022'};
 
@@ -180,8 +182,9 @@ for(const[key, value] of entries){
 // 6) Accessing Only Values In An Object
 const values = Object.values(originalObject);
 console.log(values)
+```
 
-
+```
 // SPREAD, because on right side of =
 const arr = [1, 2, ...[3,4]];
 console.log(arr) --> [1, 2, 3, 4]
@@ -194,9 +197,9 @@ Rest operator does not include skipped elements.
 const arr = [1, 2, 3, 4, 5];
 const [a, , b, ...newArray] = arr;
 console.log(a, b, newArray) --> 1 3 [4,5]
-
+```
 There can only be one rest operator in any destructuring assignment.
-
+```
 Rest operator also works with objects and functions.
 // Example of Rest Operator In Use
 const add = function(...numbers){
@@ -210,12 +213,12 @@ add(2, 3);
 add(2, 3, 4, 5);
 const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 add(...arr);
-
-
+```
 Logical Operators can use any data type, return any data type in JavaScript.
 They perform Short Circuit Evaluation
 
 ShortCircuiting: If the first value is a truthy value, it will immediately return the first value without even checking the second value
+```
 // If any one is truthy -> return truthy value
 console.log(3 || 'Abhi') --> 3
 console.log('' || 'Abhi') --> Abhi
@@ -245,10 +248,10 @@ rest2.numGuests ??=10;
 Optional Chaining (es2020): if a certain property doesn't exist then undefined is returned immediately.
 console.log(restaurant.openingHours.mon?.open);
 //if .mon exists in the object restaurant then .open value will be returned else, undefined will be returned.
-
+```
 
 JavaScript has built in Data Structures for Sets and Maps.
-
+```
 Creating an array of unique values with Sets
 
 const newArray = [...new Set(originalArray)];
@@ -265,23 +268,25 @@ Iteration Over Maps
 for(const [key, value] of question){
     console.log(key, value);
 }
-
+```
 Both Sets and Maps don't store duplicate keys.
 
 
 
 Default Parameters(es6)
+```
 const createBooking = function(flightNum, numPassengers = 1, price = 199 * numPassengers){
     .....
 }
+```
 
-
-
+```
 Replace spaces in a string
 const oneWord = function(str){
     return str.replace(/ /g,'');
 }
-
+```
+```
 function returning function
 const greet = function(greeting){
     return function(name){
@@ -295,18 +300,18 @@ greetHey('Abhi');
 
 greet('hello')('Abhi');
 // Output --> Hey Abhi
-
-
+```
+```
 Immediately Invoked Function Expression
 (function(){
     console.log('This will only run once');
 })();
 (() => console.log('This will only run once'))();
-
+```
 
 Closures:
 A closure is the combination of a function bundled together (enclosed) with references to its surrounding state (the lexical environment). In other words, a closure gives you access to an outer function's scope from an inner function. In JavaScript, closures are created every time a function is created, at function creation time.
-
+```
 // Example Of Closures
 function init() {
   var name = 'Mozilla'; // name is a local variable created by init
@@ -317,10 +322,9 @@ function init() {
   displayName();
 }
 init();
-
+```
 // Explanation Of The Code Above
 init() creates a local variable called name and a function called displayName(). The displayName() function is an inner function that is defined inside init() and is available only within the body of the init() function. Note that the displayName() function has no local variables of its own. However, since inner functions have access to the variables of outer functions, displayName() can access the variable name declared in the parent function, init().
 
 
 
-```
