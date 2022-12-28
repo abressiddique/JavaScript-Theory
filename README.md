@@ -1,3 +1,4 @@
+```
 Q. What is JavaScript
 A: JavaScript is a high level, object oriented, multi-paradigm, programming language.
 A: JavaScript is a High level, prototype based object oriented, multi-paradigm, interpreted or Just In Time Compiled, dynamic, single-threaded, garbage collected programming language with first-class functions and a non-blocking event loop concurrency model.
@@ -322,3 +323,4 @@ init() creates a local variable called name and a function called displayName().
 
 
 
+```
