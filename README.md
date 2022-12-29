@@ -328,3 +328,22 @@ init() creates a local variable called name and a function called displayName().
 
 
 
+continue and break statements do not work in a forEach loop.
+
+Important Array Methods => forEach, map, filter, reduce, at, slice, splice, find, findIndex, some, every, flat, flatMap, sort and fill.
+
+First way of filling an array(old way)
+```
+const arr = new Array(7);
+arr.fill(0);
+```
+
+Second way of filling an array(new way).
+```
+// Creating an array of length 7 and filling it with 0.
+const arr = Array.from({length: 7}, () => 0);
+
+// Creating array of length 7 and filling it with 1-7 numbers
+const arr = Array.from({length: 7}, (currentElement. index) => index + 1);
+```
+
