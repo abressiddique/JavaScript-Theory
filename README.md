@@ -347,3 +347,121 @@ const arr = Array.from({length: 7}, () => 0);
 const arr = Array.from({length: 7}, (currentElement. index) => index + 1);
 ```
 
+JavaScript doesn't always give the correct solutions regarding mathematical operators, so be aware of it while solving DSA problems
+
+```
+console.log(0.1 + 0.2);
+console.log(0.2 + 0.3);
+console.log(0.1 + 0.2 === 0.3);
+console.log(Math.floor(0.1 + 0.2) === Math.floor(0.3));
+
+// Output
+// 0.30000000000000004
+// 0.5
+// false
+// true
+
+```
+Converting String to Number
+```
+console.log(Number('23'));// Output -> 23
+console.log(+'23');       // Output -> 23
+Number.parseInt('23');    // Output -> 23
+Number.parseInt('23px');  // Output -> 23
+Number.parseInt('23.5');  // Output -> 23
+Number.parseFloat('2.5'); // Output -> 2.5
+Number.parseFloat('2.5rem'); // Output -> 2.5
+```
+
+Checking isNumber
+```
+console.log(Number.isNaN(20));
+console.log(Number.isInteger(20));
+console.log(Number.isFinite('20'));
+// isFinite is the best Way To Check because it doesn't consider infinity to be true
+```
+
+Power of a number
+
+```
+console.log(25 ** 2); // Output: 25^2 = 625
+console.log(25 ** 1/2); // Ouput sqrt(25) = 5
+```
+
+Important Math Methods In Js
+Math.max, Math.min, Math.PI, Number.sqrt, Math.trunc, Math.random, Math.round(), Math.floor, Math.ceil, toFixed
+
+es2021 => Numeric Seperators, for better representation of a number.
+```
+const diameter = 287_460_000_000;
+console.log(diameter);
+// Output: 287460000000
+```
+
+
+Largest Number In JS
+```
+console.log(Number.MAX_SAFE_INTEGER);
+console.log(Number.MIN_SAFE_INTEGER);
+```
+
+es2020 => BigInt Primitive Data Type
+add n at the end of the number to make it BigInt;
+```
+console.log(111111111111111111111111111111111111111111111111111111n);
+console.log(BigInt(192919))
+// BigInt(variable) Should only be used with small numbers because JS has to internally store the number before passing it to BigInt
+```
+Operators work the same way with BigInt;
+Mixing BigInt with regular numbers is not possible. We will have to convert the regular number to BigInt before applying operators.
+
+```
+console.log(20n === 20); // false
+console.log(20n > 15); // true
+
+const huge = 100000000000000000000000000000000000n;
+console.log(huge + ' is Big');
+// Output: 100000000000000000000000000000000000 is Big
+
+console.log(10n/3n); // Output: 3n
+console.log(10/3); // Output: 3.3333....
+```
+
+Passing parameters to setTimeout function
+```
+setTimeout((ing1, ing2) => console.log(ing1, ing2),
+3000,
+'Hello',
+'there');
+
+const words = ['Hello', 'there'];
+setTimeout((ing1, ing2) => console.log(ing1, ing2),
+3000,
+...words);
+
+```
+
+Stopping the setTimeout function
+```
+const wordTimer = setTimeout((ing1, ing2) => console.log(ing1, ing2),
+3000,
+'Hello',
+'there');
+
+const words = ['Hello', 'there'];
+setTimeout((ing1, ing2) => console.log(ing1, ing2),
+3000,
+...words);
+
+if(words.includes('there')) clearTimeout(wordTimer);
+```
+
+DOM:
+```
+JS <-- DOM (Interface) --> Browser
+```
+1. Allows Interaction between JS code and Browser.
+2. Allows JS code to create, modify, delete, set styles, classes, attributes, listen and respond.
+3. DOM tree is generated from HTML document which the JS code can interact with to manipulate the website.
+4. DOM is an API that contains lots of methods and properties to interact with the DOM Tree.
+
