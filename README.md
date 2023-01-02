@@ -490,6 +490,132 @@ Object-oriented programming (OOP) is a programming paradigm based on the concept
 Object-oriented programming (OOP) is a computer programming model that organizes software design around data, or objects, rather than functions and logic. An object can be defined as a data field that has unique attributes and behavior.
 OOP focuses on the objects that developers want to manipulate rather than the logic required to manipulate them. This approach to programming is well-suited for programs that are large, complex and actively updated or maintained.
 
+
+Asynchronous programming is a technique that enables your program to start a potentially long-running task and still be able to be responsive to other events while that task runs, rather than having to wait until that task has finished. Once that task has finished, your program is presented with the result.
+
+
+Callback Function: A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action. However, that callbacks are often used to continue code execution after an asynchronous operation has completed — these are called asynchronous callbacks. A good example is the callback functions executed inside a .then() block chained onto the end of a promise after that promise fulfills or rejects. This structure is used in many modern web APIs, such as fetch().
+A callback is a function that is passed as an argument to another function that executes the callback based on the result. They are basically functions that are executed only after a result is produced. Callbacks are an important part of asynchronous JavaScript.
+
+Inversion of control is the notion of having code under your control in one part of the program, then handing control over to a callback in another part of the program. Inversion of Control (IoC) is an abstract programming principle based on the flow of control (execution of statements/instructions) that should be fully managed by the specific implementation of the framework, which is external to your code.
+
+Callback Hell: Callback Hell is essentially nested callbacks stacked below one another forming a pyramid structure. Every callback depends/waits for the previous callback, thereby making a pyramid structure that affects the readability and maintainability of the code. 
+
+We can avoid the callback hell with the help of Promises. Promises in javascript are a way to handle asynchronous operations. It allows us to return a value from an asynchronous function like synchronous functions. When we return something from an asynchronous method it returns a promise which can be used to consume the final value when it is available in the future with the help of then() method or await inside of async functions.
+
+```
+// 1) First solution to callback hell: Write comments
+// Makes a burger
+// makeBurger contains four steps:
+//   1. Get beef
+//   2. Cook the beef
+//   3. Get buns for the burger
+//   4. Put the cooked beef between the buns
+//   5. Serve the burger (from the callback)
+// We use callbacks here because each step is asynchronous.
+//   We have to wait for the helper to complete the one step
+//   before we can start the next step
+
+const makeBurger = nextStep => {
+  getBeef(function(beef) {
+    cookBeef(beef, function(cookedBeef) {
+      getBuns(function(buns) {
+        putBeefBetweenBuns(buns, beef, function(burger) {
+          nextStep(burger);
+        });
+      });
+    });
+  });
+};
+
+
+// 2) Second solution to callback hell: Split the callbacks into different functions
+const getBeef = nextStep => {
+  const fridge = leftFright;
+  const beef = getBeefFromFridge(fridge);
+  nextStep(beef);
+};
+
+const cookBeef = (beef, nextStep) => {
+  const workInProgress = putBeefinOven(beef);
+  setTimeout(function() {
+    nextStep(workInProgress);
+  }, 1000 * 60 * 20);
+};
+
+
+// 3) Third solution to callback hell: Use promises
+const makeBurger = () => {
+  return getBeef()
+    .then(beef => cookBeef(beef))
+    .then(cookedBeef => getBuns(beef))
+    .then(bunsAndBeef => putBeefBetweenBuns(bunsAndBeef));
+};
+
+// Make and serve burger
+makeBurger().then(burger => serve(burger));
+
+const makeBurger = () => {
+  return getBeef()
+    .then(cookBeef)
+    .then(getBuns)
+    .then(putBeefBetweenBuns);
+};
+
+// Make and serve burger
+makeBurger().then(serve);
+
+
+// 4) Converting callbacks to promises
+const getBeefPromise = _ => {
+  const fridge = leftFright;
+  const beef = getBeefFromFridge(fridge);
+  
+  return new Promise((resolve, reject) => {
+    if (beef) {
+      resolve(beef);
+    } else {
+      reject(new Error(“No more beef!”));
+    }
+  });
+};
+
+const cookBeefPromise = beef => {
+  const workInProgress = putBeefinOven(beef);
+  
+  return new Promise((resolve, reject) => {
+    setTimeout(function() {
+      resolve(workInProgress);
+    }, 1000 * 60 * 20);
+  });
+};
+
+
+// 5) Fourth solution to callback hell: Use asynchronous functions
+const makeBurger = async () => {
+  const beef = await getBeef();
+  const cookedBeef = await cookBeef(beef);
+  const buns = await getBuns();
+  const burger = await putBeefBetweenBuns(cookedBeef, buns);
+  return burger;
+};
+
+// Make and serve burger
+makeBurger().then(serve);
+
+
+const makeBurger = async () => {
+  const [beef, buns] = await Promise.all(getBeef, getBuns);
+  const cookedBeef = await cookBeef(beef);
+  const burger = await putBeefBetweenBuns(cookedBeef, buns);
+  return burger;
+};
+
+// Make and serve burger
+makeBurger().then(serve);
+```
+
+
 4 Principles Of OOP
 1. Abstraction: Hiding details that don't matter, allowing us to get an overview perspective of the thing we are implementing, instead of messing with details that really don't matter to our implementation.
 2. Encapsulation: Keeping properties and methods private inside the class so that they are not accessible from outside the class. Some methods can be exposed as a public interface (API).
