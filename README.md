@@ -456,6 +456,13 @@ setTimeout((ing1, ing2) => console.log(ing1, ing2),
 if(words.includes('there')) clearTimeout(wordTimer);
 ```
 
+Easier way of creating a smooth scroll in JavaScript
+```
+btnScrollTo.addEventListener('click', function(e){
+    section1.scrollIntoView({behavior: 'smooth'});
+    });
+```
+
 DOM:
 ```
 JS <-- DOM (Interface) --> Browser
@@ -465,3 +472,40 @@ JS <-- DOM (Interface) --> Browser
 3. DOM tree is generated from HTML document which the JS code can interact with to manipulate the website.
 4. DOM is an API that contains lots of methods and properties to interact with the DOM Tree.
 
+Bubbling:
+When an event happens on an element, it first runs the handlers on it, then on its parent, then all the way up on other ancestors.
+
+
+The standard DOM Events describes 3 phases of event propagation:
+
+Capturing phase – the event goes down to the element.
+Target phase – the event reached the target element.
+Bubbling phase – the event bubbles up from the element.
+
+
+Event Delegation is a pattern to handle events efficiently. Instead of adding an event listener to each and every similar element, we can add an event listener to a parent element and call an event on a particular target using the .target property of the event object.
+
+
+Object-oriented programming (OOP) is a programming paradigm based on the concept of "objects", which can contain data and code. The data is in the form of fields (often known as attributes or properties), and the code is in the form of procedures (often known as methods).
+Object-oriented programming (OOP) is a computer programming model that organizes software design around data, or objects, rather than functions and logic. An object can be defined as a data field that has unique attributes and behavior.
+OOP focuses on the objects that developers want to manipulate rather than the logic required to manipulate them. This approach to programming is well-suited for programs that are large, complex and actively updated or maintained.
+
+4 Principles Of OOP
+1. Abstraction: Hiding details that don't matter, allowing us to get an overview perspective of the thing we are implementing, instead of messing with details that really don't matter to our implementation.
+2. Encapsulation: Keeping properties and methods private inside the class so that they are not accessible from outside the class. Some methods can be exposed as a public interface (API).
+3. Inheritance: In object-oriented programming, inheritance is the mechanism of basing an object or class upon another object or class, retaining similar implementation. Also defined as deriving new classes from existing ones such as super class or base class and then forming them into a hierarchy of classes.
+4. Polymorphism: The word polymorphism means having many forms. In simple words, we can define polymorphism as the ability of a message to be displayed in more than one form. 
+
+Objects are instantiated from a class, which are functions like a blueprint in JavaScript.
+Instantiation is creation of instance from a class.
+
+
+```
+Prototypal Inheritance Delegation
+Prototype (Contains Methods) <--- Object (Can Acess Methods)
+```
+Objects are linked to a prototype object.
+Proptotypal Inheritance: The prototype contains methods (behaviour) that are accesible to all objects linked to that prototype.
+Behaviour is delegated to the linked prototype object.
+
+ES6 Classes are constructor functions with syntactical sugar, not actual classes.
