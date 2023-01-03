@@ -491,6 +491,37 @@ Object-oriented programming (OOP) is a computer programming model that organizes
 OOP focuses on the objects that developers want to manipulate rather than the logic required to manipulate them. This approach to programming is well-suited for programs that are large, complex and actively updated or maintained.
 
 
+
+
+4 Principles Of OOP
+1. Abstraction: Hiding details that don't matter, allowing us to get an overview perspective of the thing we are implementing, instead of messing with details that really don't matter to our implementation.
+2. Encapsulation: Keeping properties and methods private inside the class so that they are not accessible from outside the class. Some methods can be exposed as a public interface (API).
+3. Inheritance: In object-oriented programming, inheritance is the mechanism of basing an object or class upon another object or class, retaining similar implementation. Also defined as deriving new classes from existing ones such as super class or base class and then forming them into a hierarchy of classes.
+4. Polymorphism: The word polymorphism means having many forms. In simple words, we can define polymorphism as the ability of a message to be displayed in more than one form. 
+
+Objects are instantiated from a class, which are functions like a blueprint in JavaScript.
+Instantiation is creation of instance from a class.
+
+
+```
+Prototypal Inheritance Delegation
+Prototype (Contains Methods) <--- Object (Can Acess Methods)
+```
+Objects are linked to a prototype object.
+Proptotypal Inheritance: The prototype contains methods (behaviour) that are accesible to all objects linked to that prototype.
+Behaviour is delegated to the linked prototype object.
+
+ES6 Classes are constructor functions with syntactical sugar, not actual classes.
+
+
+Each object has a private property (referred to as its Prototype) that maintains a link to another object called its prototype. That prototype object has its own prototype, and so on until an object whose prototype is null is reached.
+
+By definition, null has no prototype, and acts as the final link in this chain of prototypes.
+
+This is known as prototypical inheritance and differs from class inheritance.
+
+
+
 Asynchronous programming is a technique that enables your program to start a potentially long-running task and still be able to be responsive to other events while that task runs, rather than having to wait until that task has finished. Once that task has finished, your program is presented with the result.
 
 
@@ -614,24 +645,3 @@ const makeBurger = async () => {
 // Make and serve burger
 makeBurger().then(serve);
 ```
-
-
-4 Principles Of OOP
-1. Abstraction: Hiding details that don't matter, allowing us to get an overview perspective of the thing we are implementing, instead of messing with details that really don't matter to our implementation.
-2. Encapsulation: Keeping properties and methods private inside the class so that they are not accessible from outside the class. Some methods can be exposed as a public interface (API).
-3. Inheritance: In object-oriented programming, inheritance is the mechanism of basing an object or class upon another object or class, retaining similar implementation. Also defined as deriving new classes from existing ones such as super class or base class and then forming them into a hierarchy of classes.
-4. Polymorphism: The word polymorphism means having many forms. In simple words, we can define polymorphism as the ability of a message to be displayed in more than one form. 
-
-Objects are instantiated from a class, which are functions like a blueprint in JavaScript.
-Instantiation is creation of instance from a class.
-
-
-```
-Prototypal Inheritance Delegation
-Prototype (Contains Methods) <--- Object (Can Acess Methods)
-```
-Objects are linked to a prototype object.
-Proptotypal Inheritance: The prototype contains methods (behaviour) that are accesible to all objects linked to that prototype.
-Behaviour is delegated to the linked prototype object.
-
-ES6 Classes are constructor functions with syntactical sugar, not actual classes.
