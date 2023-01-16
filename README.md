@@ -645,3 +645,6 @@ const makeBurger = async () => {
 // Make and serve burger
 makeBurger().then(serve);
 ```
+
+
+Promise: An object that is used as a placeholder for the future result of an asynchronous operation. It is a container for a future value.
