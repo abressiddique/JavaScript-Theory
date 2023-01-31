@@ -79,6 +79,7 @@ JS has dynamic typing => Data types are determined automatically. In JS, value h
 
 let is block scoped, var is function scoped. Avoid using var, use const as default and let when the value of the variable may change after initialisation.
 
+Type conversion is when we manually convert from one type to another, where as type coercion is when JavaScript automatically converts one type to another behind the scenes.
 
 Falsy Values are values that on conversion to boolean will return false
 JS has 5 falsy Values: 0, '', undefined, null, NaN
