@@ -74,7 +74,7 @@ In JS every value is either an object or a primitive value.
 7. BigInt (ES2020)
 ```
 
-JS has dynamic typing => Data types are determined automatically.
+JS has dynamic typing => Data types are determined automatically. In JS, value has the type, not the variable. Variables simply store the value.
 
 
 let is block scoped, var is function scoped. Avoid using var, use const as default and let when the value of the variable may change after initialisation.
