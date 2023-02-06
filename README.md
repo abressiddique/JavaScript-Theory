@@ -649,3 +649,6 @@ makeBurger().then(serve);
 
 
 Promise: An object that is used as a placeholder for the future result of an asynchronous operation. It is a container for a future value.
+
+
+TDZ: Temporal Dead Zone is the period of time during which the let and const declarations cannot be accessed. Temporal Dead Zone starts when the code execution enters the block which contains the let or const declaration and continues until the declaration has executed.
